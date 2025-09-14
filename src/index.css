@@ -5,24 +5,27 @@
 
 @layer base {
   html, body, #root { height: 100%; }
-  body { @apply bg-slate-900 text-slate-100; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  body { 
+    @apply bg-gray-50 text-gray-800 font-sans;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  }
 }
 
 .container { @apply max-w-5xl mx-auto px-4; }
-.card { @apply bg-slate-800/70 border border-slate-700 rounded-2xl p-5 shadow; }
-.tile { @apply bg-slate-800/60 border border-slate-700 rounded-xl p-4 text-left hover:border-brand cursor-pointer; }
-.btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 border border-slate-700; }
-.btn-primary { @apply bg-brand text-slate-900 font-semibold border-brand; }
-.btn-outline { @apply bg-transparent text-slate-100; }
-.input { @apply bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 w-full; }
-.label { @apply text-sm text-slate-300; }
-.hint { @apply text-slate-300/80 bg-slate-800/40 border border-slate-700 rounded-lg px-3 py-2; }
+.card { @apply bg-white shadow rounded-xl p-6; }
+.tile { @apply bg-white shadow border border-gray-200 rounded-xl p-5 text-left hover:border-teal-600 cursor-pointer; }
+.btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 border font-medium transition; }
+.btn-primary { @apply bg-teal-600 hover:bg-teal-700 text-white border-teal-600; }
+.btn-outline { @apply border-gray-300 text-gray-700 bg-white hover:bg-gray-50; }
+.input { @apply bg-white border border-gray-300 rounded-lg px-3 py-2 w-full; }
+.label { @apply text-sm text-gray-600 font-medium; }
+.hint { @apply text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded-lg px-3 py-2; }
 .page { display: none; }
 .page.active { display: block; animation: fade .2s ease; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
-.synthese { @apply bg-slate-800/60 border border-slate-700 rounded-xl p-4 mt-3; }
+.synthese { @apply bg-blue-50 border border-blue-200 rounded-xl p-4 mt-3; }
 .row { @apply flex items-center gap-3; }
 .grow { @apply flex-1; }
 .scoreShow { @apply font-semibold; }
-.toast { @apply fixed bottom-5 left-1/2 -translate-x-1/2 bg-brand text-slate-900 px-3 py-2 rounded-lg opacity-0 transition; }
+.toast { @apply fixed bottom-5 right-5 bg-teal-600 text-white px-4 py-2 rounded-lg shadow opacity-0 transition; }
 .toast.show { opacity: 1 }

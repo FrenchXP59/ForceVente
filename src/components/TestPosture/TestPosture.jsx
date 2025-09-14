@@ -1,51 +1,117 @@
-
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { postureQuestions } from '../../data/postureData'
+import { Target, Award, AlertTriangle } from 'lucide-react'
 
-export default function TestPosture({ data={}, updateData, onBack }){
+export default function TestPosture({ data={}, updateData, onBack }) {
+  const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState(data?.answers || Array(postureQuestions.length).fill(null))
+  const [finished, setFinished] = useState(false)
+  const [result, setResult] = useState(null)
 
-  useEffect(()=>{ setAnswers(data?.answers || Array(postureQuestions.length).fill(null)) }, [data])
+  useEffect(() => {
+    if (data?.answers) setAnswers(data.answers)
+  }, [data])
 
-  const score = useMemo(()=> answers.reduce((a,ans,i)=> a + (ans===postureQuestions[i].correctIndex ? 1 : 0), 0), [answers])
-  const max = postureQuestions.length
-  const pct = Math.round((score/max)*100)
-  const profile = pct>=70 ? 'Solide' : pct>=50 ? 'Prometteur' : 'À travailler'
+  const handleAnswer = (qi, ci) => {
+    const newAnswers = [...answers]
+    newAnswers[qi] = ci
+    setAnswers(newAnswers)
+  }
 
-  const save = ()=> updateData({ answers, score, max, pct, profile })
+  const handleFinish = () => {
+    const score = answers.reduce((acc, ans, i) => acc + (ans === postureQuestions[i].correctIndex ? 1 : 0), 0)
+    const max = postureQuestions.length
+    const pct = Math.round((score / max) * 100)
+    let profile = "Profil à Renforcer"
+    let icon = <AlertTriangle className="w-6 h-6 text-orange-600" />
+    let badgeClass = "bg-orange-100 text-orange-700 border border-orange-300"
+
+    if (pct >= 70) {
+      profile = "Profil Expert"
+      icon = <Award className="w-6 h-6 text-blue-600" />
+      badgeClass = "bg-blue-100 text-blue-700 border border-blue-300"
+    } else if (pct >= 50) {
+      profile = "Profil Prometteur"
+      icon = <Target className="w-6 h-6 text-green-600" />
+      badgeClass = "bg-green-100 text-green-700 border border-green-300"
+    }
+
+    const res = { answers, score, max, pct, profile, icon, badgeClass }
+    setResult(res)
+    updateData(res)
+    setFinished(true)
+  }
+
+  if (finished && result) {
+    return (
+      <section>
+        <div className="flex items-center gap-2 mb-3">
+          <button className="btn btn-outline" onClick={onBack}>← Accueil</button>
+          <h2 className="text-xl font-semibold">Test Auto-diagnostic Posture</h2>
+        </div>
+        <div className="card space-y-3">
+          <div className="flex items-center gap-2">
+            {result.icon}
+            <h3 className={`font-bold ${result.badgeClass.split(" ")[1]}`}>{result.profile}</h3>
+          </div>
+          <p>Score : <b>{result.score}/{result.max}</b> ({result.pct}%)</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm">
+            {result.profile === "Profil Expert" && "Vous maîtrisez vos techniques de posture. Continuez à perfectionner l’écoute émotionnelle."}
+            {result.profile === "Profil Prometteur" && "Vous avez de bonnes bases. Continuez vos efforts pour renforcer la gestion des objections."}
+            {result.profile === "Profil à Renforcer" && "Travaillez vos techniques de questionnement et développez l’écoute active."}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section>
       <div className="flex items-center gap-2 mb-3">
-        <button className="btn btn-outline" onClick={onBack}>← Retour</button>
-        <h2 className="text-xl font-semibold">Test de posture (QCM)</h2>
+        <button className="btn btn-outline" onClick={onBack}>← Accueil</button>
+        <h2 className="text-xl font-semibold flex items-center gap-2">
+          <Target className="w-5 h-5 text-blue-600" /> Test Auto-diagnostic Posture
+        </h2>
       </div>
 
-      <div className="space-y-3">
-        {postureQuestions.map((q, qi)=>(
-          <div className="card" key={qi}>
-            <p className="font-medium">Q{qi+1}. {q.question}</p>
-            <div className="mt-2 flex flex-col gap-2">
-              {q.choices.map((c,ci)=>(
-                <label key={ci} className="flex items-center gap-2">
-                  <input type="radio" name={`q${qi}`} checked={answers[qi]===ci}
-                    onChange={()=> setAnswers(prev=>{ const n=[...prev]; n[qi]=ci; return n })}/>
-                  <span>{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        ))}
+      {/* Progression */}
+      <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+        <div
+          className="bg-blue-600 h-2 rounded-full transition-all"
+          style={{ width: `${((step + 1) / postureQuestions.length) * 100}%` }}
+        />
       </div>
 
-      <div className="synthese">
-        <h3 className="font-semibold mb-1">Résultat</h3>
-        <p>Score : <b>{score}/{max}</b> ({pct}%) – {profile}</p>
+      {/* Question courante */}
+      <div className="card">
+        <p className="font-medium mb-3">Question {step + 1} sur {postureQuestions.length}</p>
+        <p className="mb-4">{postureQuestions[step].question}</p>
+        <div className="flex flex-col gap-2">
+          {postureQuestions[step].choices.map((c, ci) => (
+            <button
+              key={ci}
+              className={`btn w-full text-left ${answers[step] === ci ? "bg-blue-100 border-blue-500 text-blue-700" : "bg-white border-gray-300"}`}
+              onClick={() => handleAnswer(step, ci)}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-3 flex gap-2">
-        <button className="btn btn-primary" onClick={save}>Valider</button>
-        <button className="btn btn-outline" onClick={onBack}>Retour</button>
+      <div className="flex justify-between mt-4">
+        <button
+          className="btn btn-outline"
+          onClick={() => setStep(s => Math.max(0, s - 1))}
+          disabled={step === 0}
+        >
+          Précédent
+        </button>
+        {step < postureQuestions.length - 1 ? (
+          <button className="btn btn-primary" onClick={() => setStep(s => s + 1)}>Suivant</button>
+        ) : (
+          <button className="btn btn-primary" onClick={handleFinish}>Terminer</button>
+        )}
       </div>
     </section>
   )

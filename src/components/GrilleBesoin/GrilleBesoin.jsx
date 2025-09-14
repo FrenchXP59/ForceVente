@@ -1,63 +1,80 @@
-
 import React, { useEffect, useMemo, useState } from 'react'
 import { besoinSections } from '../../data/besoinData'
+import { DollarSign, Clock, Shield, Monitor } from 'lucide-react'
 
-export default function GrilleBesoin({ data={}, updateData, onBack }){
+const icons = {
+  budget: <DollarSign className="w-5 h-5 text-teal-600" />,
+  echeance: <Clock className="w-5 h-5 text-teal-600" />,
+  confort: <Monitor className="w-5 h-5 text-teal-600" />,
+  risque: <Shield className="w-5 h-5 text-teal-600" />
+}
+
+export default function GrilleBesoin({ data = {}, updateData, onBack }) {
   const [state, setState] = useState(data || {})
 
-  useEffect(()=>{ setState(data||{}) }, [data])
+  useEffect(() => { setState(data || {}) }, [data])
 
-  const total = useMemo(()=>Object.values(state).reduce((a,b)=>a+(b?.score||0),0), [state])
+  const total = useMemo(() => Object.values(state).reduce((a, b) => a + (b?.score || 0), 0), [state])
   const max = besoinSections.length * 5
-  const pct = Math.round((total/max)*100)
+  const pct = Math.round((total / max) * 100)
 
-  const save = ()=> updateData(state)
+  const save = () => updateData(state)
 
   return (
     <section>
-      <div className="flex items-center gap-2 mb-3">
-        <button className="btn btn-outline" onClick={onBack}>← Retour</button>
-        <h2 className="text-xl font-semibold">Grille d'analyse des besoins</h2>
+      <div className="flex items-center gap-2 mb-4">
+        <button className="btn btn-outline" onClick={onBack}>← Accueil</button>
+        <h2 className="text-xl font-semibold text-blue-700">Grille d'analyse des besoins</h2>
       </div>
-      <p className="hint mb-3">Évaluez chaque section de 0 à 5 et ajoutez vos notes.</p>
+      <p className="hint mb-4">Évaluez chaque section de 0 à 5 et ajoutez vos notes.</p>
 
-      <div className="space-y-3">
-        {besoinSections.map(s=>{
-          const val = state[s.id] || { notes:'', score:0 }
+      <div className="space-y-5">
+        {besoinSections.map(s => {
+          const val = state[s.id] || { notes: '', score: 0 }
           return (
-            <div key={s.id} className="card">
+            <div key={s.id} className="card space-y-3">
               <div className="flex items-center justify-between">
-                <h3 className="text-emerald-400 font-semibold">{s.title}</h3>
-                <span className="text-sm text-slate-400">/5</span>
+                <div className="flex items-center gap-2">
+                  {icons[s.id]}
+                  <h3 className="font-semibold text-blue-600">{s.title}</h3>
+                </div>
+                <span className="text-sm text-gray-400">{val.score}/5</span>
               </div>
-              <ul className="list-disc ml-6 my-2 text-slate-300">
-                {s.questions.map((q,i)=>(<li key={i}>{q}</li>))}
+              <ul className="list-disc ml-6 space-y-1 text-sm text-gray-600 italic">
+                {s.questions.map((q, i) => (<li key={i}>{q}</li>))}
               </ul>
-
-              <label className="label">Notes :</label>
-              <textarea className="input min-h-[90px]" value={val.notes}
-                onChange={e=>setState(prev=>({...prev, [s.id]:{...val, notes:e.target.value}}))}
-                placeholder="Vos notes pour cette section..." />
-
-              <div className="row mt-2">
+              <div>
+                <label className="label">Notes :</label>
+                <textarea
+                  className="input min-h-[90px]"
+                  value={val.notes}
+                  onChange={e => setState(prev => ({ ...prev, [s.id]: { ...val, notes: e.target.value } }))}
+                  placeholder="Vos notes pour cette section..."
+                />
+              </div>
+              <div className="flex items-center gap-3">
                 <label className="label">Évaluation :</label>
-                <input type="range" min="0" max="5" step="1"
-                  className="grow accent-emerald-400"
+                <input
+                  type="range"
+                  min="0"
+                  max="5"
+                  step="1"
+                  className="grow accent-teal-600"
                   value={val.score}
-                  onChange={e=>setState(prev=>({...prev, [s.id]:{...val, score:Number(e.target.value)}}))}/>
-                <span className="scoreShow">{val.score}</span>
+                  onChange={e => setState(prev => ({ ...prev, [s.id]: { ...val, score: Number(e.target.value) } }))}
+                />
               </div>
             </div>
           )
         })}
       </div>
 
-      <div className="synthese">
+      <div className="synthese mt-4">
         <h3 className="font-semibold mb-1">Synthèse</h3>
         <p>Score total : <b>{total}/{max}</b> ({pct}%).</p>
       </div>
 
-      <div className="mt-3 flex gap-2">
+      <div className="mt-4 flex gap-2">
         <button className="btn btn-primary" onClick={save}>Sauvegarder</button>
         <button className="btn btn-outline" onClick={onBack}>Retour</button>
       </div>
