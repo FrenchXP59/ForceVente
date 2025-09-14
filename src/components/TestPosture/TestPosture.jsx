@@ -90,7 +90,11 @@ export default function TestPosture({ data={}, updateData, onBack }) {
           {postureQuestions[step].choices.map((c, ci) => (
             <button
               key={ci}
-              className={`btn w-full text-left ${answers[step] === ci ? "bg-blue-100 border-blue-500 text-blue-700" : "bg-white border-gray-300"}`}
+              className={`btn w-full text-left ${
+                answers[step] === ci 
+                  ? "bg-blue-100 border-blue-500 text-blue-700" 
+                  : "bg-white border-gray-300 text-gray-700"
+              }`}
               onClick={() => handleAnswer(step, ci)}
             >
               {c}
