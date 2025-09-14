@@ -86,3 +86,5 @@ export default function GrilleEcoute({ data={}, updateData, onBack }) {
     <button className="btn btn-outline" onClick={onBack}>Retour</button>
   </div>
 </section>
+  )
+}
