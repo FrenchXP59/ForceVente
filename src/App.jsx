@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react'
 import Header from './components/Layout/Header'
 import Container from './components/Layout/Container'
@@ -35,18 +34,57 @@ export default function App(){
     <div className="min-h-screen bg-gray-50">
       <Header user={user} onReset={()=>{ resetAll(); go(PAGES.HOME) }} />
       <Container>
-        {page===PAGES.HOME && <HomePage user={user} onStart={(u)=>{updateUser(u); go(PAGES.HUB)}} />}
+        {page===PAGES.HOME && (
+          <HomePage user={user} onStart={(u)=>{updateUser(u); go(PAGES.HUB)}} />
+        )}
+
         {page===PAGES.HUB && (
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold">Modules</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <button className="tile" onClick={()=>go(PAGES.BESOIN)}>📊 Grille BESOIN</button>
-              <button className="tile" onClick={()=>go(PAGES.ECOUTE)}>👂 Grille ÉCOUTE</button>
-              <button className="tile" onClick={()=>go(PAGES.POSTURE)}>🎯 Test POSTURE (QCM)</button>
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold text-gray-800">Modules</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+              {/* Carte BESOIN */}
+              <button className="tile-besoin" onClick={()=>go(PAGES.BESOIN)}>
+                <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3 3v18h18" />
+                    <path d="M18 17V9" />
+                    <path d="M13 17V5" />
+                    <path d="M8 17v-3" />
+                  </svg>
+                </div>
+                <span>Grille BESOIN</span>
+              </button>
+
+              {/* Carte ÉCOUTE */}
+              <button className="tile-ecoute" onClick={()=>go(PAGES.ECOUTE)}>
+                <div className="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 9v6" />
+                    <path d="M15 9v6" />
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z" />
+                  </svg>
+                </div>
+                <span>Grille ÉCOUTE</span>
+              </button>
+
+              {/* Carte POSTURE */}
+              <button className="tile-posture" onClick={()=>go(PAGES.POSTURE)}>
+                <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+                <span>Test POSTURE (QCM)</span>
+              </button>
+
             </div>
             <PDFExport user={user} besoins={besoins} ecoute={ecoute} posture={posture} />
           </div>
         )}
+
         {page===PAGES.BESOIN && (
           <GrilleBesoin
             data={besoins}
@@ -54,6 +92,7 @@ export default function App(){
             onBack={()=>go(PAGES.HUB)}
           />
         )}
+
         {page===PAGES.ECOUTE && (
           <GrilleEcoute
             data={ecoute}
@@ -61,6 +100,7 @@ export default function App(){
             onBack={()=>go(PAGES.HUB)}
           />
         )}
+
         {page===PAGES.POSTURE && (
           <TestPosture
             data={posture}
