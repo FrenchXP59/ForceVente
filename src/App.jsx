@@ -32,7 +32,7 @@ export default function App(){
   const showToast = (msg) => { setToast(msg); setTimeout(()=>setToast(''), 2000) }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Header user={user} onReset={()=>{ resetAll(); go(PAGES.HOME) }} />
       <Container>
         {page===PAGES.HOME && <HomePage user={user} onStart={(u)=>{updateUser(u); go(PAGES.HUB)}} />}
