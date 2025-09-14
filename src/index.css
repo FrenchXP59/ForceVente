@@ -10,66 +10,69 @@
   }
 }
 
-/* Layout */
+/* Container & Cards */
 .container { @apply max-w-5xl mx-auto px-4; }
 .card { @apply bg-white shadow rounded-xl p-6; }
 
-/* Boutons dashboard */
+/* Tiles */
 .tile { 
   @apply bg-white shadow border border-gray-200 rounded-xl p-5 
-         text-left cursor-pointer text-gray-700 font-medium 
-         transition flex items-center gap-2;
+         text-left hover:border-teal-600 cursor-pointer 
+         text-gray-700 font-medium transition;
 }
 
-/* Cartes premium avec bande colorée + hover */
 .tile-besoin {
-  @apply bg-white shadow border-l-4 border-teal-600 rounded-xl p-5 
-         text-left cursor-pointer text-gray-700 font-medium 
-         flex items-center gap-3 transition transform;
-}
-.tile-besoin:hover { 
-  @apply bg-teal-50 shadow-md scale-[1.02]; 
+  @apply bg-white shadow border-l-4 border-teal-600 rounded-xl p-5 text-left 
+         hover:shadow-md cursor-pointer text-gray-700 font-medium flex items-center gap-2;
 }
 
 .tile-ecoute {
-  @apply bg-white shadow border-l-4 border-yellow-500 rounded-xl p-5 
-         text-left cursor-pointer text-gray-700 font-medium 
-         flex items-center gap-3 transition transform;
-}
-.tile-ecoute:hover { 
-  @apply bg-yellow-50 shadow-md scale-[1.02]; 
+  @apply bg-white shadow border-l-4 border-yellow-500 rounded-xl p-5 text-left 
+         hover:shadow-md cursor-pointer text-gray-700 font-medium flex items-center gap-2;
 }
 
 .tile-posture {
-  @apply bg-white shadow border-l-4 border-red-500 rounded-xl p-5 
-         text-left cursor-pointer text-gray-700 font-medium 
-         flex items-center gap-3 transition transform;
-}
-.tile-posture:hover { 
-  @apply bg-red-50 shadow-md scale-[1.02]; 
+  @apply bg-white shadow border-l-4 border-red-500 rounded-xl p-5 text-left 
+         hover:shadow-md cursor-pointer text-gray-700 font-medium flex items-center gap-2;
 }
 
-/* Boutons génériques */
-.btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 border font-medium transition; }
-.btn-primary { @apply bg-teal-600 hover:bg-teal-700 text-white border-teal-600; }
-.btn-outline { @apply border-gray-300 text-gray-700 bg-white hover:bg-gray-50; }
+/* ✅ Inputs */
+.input { 
+  @apply bg-white border border-gray-300 rounded-lg px-3 py-2 w-full text-gray-700;
+}
+.input:focus { 
+  @apply outline-none ring-2 ring-teal-500 border-teal-500;
+}
 
-/* Formulaires */
-.input { @apply bg-white border border-gray-300 rounded-lg px-3 py-2 w-full text-gray-700; }
-.label { @apply text-sm text-gray-600 font-medium; }
-.hint { @apply text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded-lg px-3 py-2; }
+/* ✅ Labels */
+.label { 
+  @apply text-sm text-gray-600 font-medium mb-1 block;
+}
+
+/* Hints */
+.hint { 
+  @apply text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded-lg px-3 py-2; 
+}
 
 /* Pages */
 .page { display: none; }
 .page.active { display: block; animation: fade .2s ease; }
-@keyframes fade { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
 
-/* Résumés & scores */
+@keyframes fade { 
+  from { opacity: 0; transform: translateY(6px) } 
+  to { opacity: 1; transform: none } 
+}
+
+/* Synthèse */
 .synthese { @apply bg-blue-50 border border-blue-200 rounded-xl p-4 mt-3; }
+
+/* Layout helpers */
 .row { @apply flex items-center gap-3; }
 .grow { @apply flex-1; }
 .scoreShow { @apply font-semibold; }
 
-/* Toasts */
-.toast { @apply fixed bottom-5 right-5 bg-teal-600 text-white px-4 py-2 rounded-lg shadow opacity-0 transition; }
-.toast.show { opacity: 1 }
+/* Toast */
+.toast { 
+  @apply fixed bottom-5 right-5 bg-teal-600 text-white px-4 py-2 rounded-lg shadow opacity-0 transition; 
+}
+.toast.show { opacity: 1; }

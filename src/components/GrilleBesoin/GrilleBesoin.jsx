@@ -36,14 +36,14 @@ export default function GrilleBesoin({ data = {}, updateData, onBack }) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   {icons[s.id]}
-                  <h3 className="font-semibold text-blue-600">{s.title}</h3>
-                </div>
-                <span className="text-sm text-gray-400">{val.score}/5</span>
-              </div>
-              <ul className="list-disc ml-6 space-y-1 text-sm text-gray-600 italic">
-                {s.questions.map((q, i) => (<li key={i}>{q}</li>))}
-              </ul>
-              <div>
+             <h3 className="font-semibold text-gray-800">{s.title}</h3>
+</div>
+<span className="text-sm text-gray-600">{val.score}/5</span>
+</div>
+<ul className="list-disc ml-6 space-y-1 text-sm text-gray-700 italic">
+  {s.questions.map((q, i) => (<li key={i}>{q}</li>))}
+</ul>
+<div>
                 <label className="label">Notes :</label>
                 <textarea
                   className="input min-h-[90px]"
