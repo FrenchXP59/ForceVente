@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "question": "Lorsqu'un client exprime ses doutes, vous préférez :",
+    "choices": [
+      {
+        "text": "L'écouter avec bienveillance",
+        "type": "Empathique"
+      },
+      {
+        "text": "Utiliser une anecdote amusante pour dédramatiser",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Proposer rapidement une solution concrète",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Argumenter en exposant vos convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Présenter des faits précis et chiffrés",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Laisser le client réfléchir calmement",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Face à un collaborateur en conflit, vous :",
+    "choices": [
+      {
+        "text": "Cherchez à apaiser la situation par un échange sincère",
+        "type": "Empathique"
+      },
+      {
+        "text": "Faites une blague pour détendre l'atmosphère",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Cherchez à régler vite le problème avec pragmatisme",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Défendez fermement votre point de vue",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Analysez les faits pour comprendre la cause",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez prendre du recul avant d'intervenir",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Lors d'une présentation produit, vous privilégiez :",
+    "choices": [
+      {
+        "text": "Créer une ambiance chaleureuse et conviviale",
+        "type": "Empathique"
+      },
+      {
+        "text": "Dynamiser la présentation avec des interactions",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Aller droit au but et conclure rapidement",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Mettre en valeur les valeurs et l'intérêt client",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Structurer votre présentation avec des données claires",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préparer soigneusement votre discours en amont",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Pour vous, une bonne relation client repose sur :",
+    "choices": [
+      {
+        "text": "La confiance et l'attention",
+        "type": "Empathique"
+      },
+      {
+        "text": "L'enthousiasme et l'humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "L'efficacité et les résultats",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Le respect des convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "La précision des informations",
+        "type": "Analyseur"
+      },
+      {
+        "text": "La discrétion et le temps d'écoute",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Face à une objection, vous réagissez :",
+    "choices": [
+      {
+        "text": "En valorisant la relation et les émotions du client",
+        "type": "Empathique"
+      },
+      {
+        "text": "En gardant le ton léger et en proposant une solution alternative",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "En répondant directement et en concluant",
+        "type": "Promoteur"
+      },
+      {
+        "text": "En argumentant sur des principes et valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "En fournissant des éléments concrets et précis",
+        "type": "Analyseur"
+      },
+      {
+        "text": "En respectant le silence et laissant le temps au client",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Votre méthode pour organiser votre travail est plutôt :",
+    "choices": [
+      {
+        "text": "Favoriser le contact humain avant toute chose",
+        "type": "Empathique"
+      },
+      {
+        "text": "Insérer des pauses ludiques et dynamiques",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Travailler avec un planning serré et efficace",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Respecter vos engagements avec rigueur",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Suivre un processus structuré et détaillé",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Prendre du recul pour planifier avec calme",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Quand vous préparez une réunion importante, vous :",
+    "choices": [
+      {
+        "text": "Souhaitez que chacun puisse s'exprimer en confiance",
+        "type": "Empathique"
+      },
+      {
+        "text": "Cherchez à rendre la réunion conviviale et interactive",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Concentrez-vous sur l'ordre du jour et l'efficacité",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Rassemblez tous les arguments pour convaincre",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Préparez des documents complets et précis",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez travailler en amont seul sur votre contribution",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "En situation d'imprévu, vous :",
+    "choices": [
+      {
+        "text": "Cherchez à rassurer les autres",
+        "type": "Empathique"
+      },
+      {
+        "text": "Prenez les choses avec une dose d'humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prenez rapidement une décision proactive",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Analysez rapidement les conséquences pour assurer",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Trouvez la solution la plus logique",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez vous isoler pour réfléchir",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Dans la négociation commerciale, vous :",
+    "choices": [
+      {
+        "text": "Valorisez la relation et l'écoute active du client",
+        "type": "Empathique"
+      },
+      {
+        "text": "Proposez des compromis créatifs",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Utilisez votre force de persuasion",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Insistez sur les engagements et valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Présentez des arguments factuels solides",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Laissez le client prendre son temps de décision",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Votre principal moteur au travail est :",
+    "choices": [
+      {
+        "text": "Le bien-être collectif",
+        "type": "Empathique"
+      },
+      {
+        "text": "L'énergie et le plaisir partagé",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "L'atteinte des objectifs",
+        "type": "Promoteur"
+      },
+      {
+        "text": "L'engagement autour de valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "La qualité et la précision",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Le calme et la réflexion",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "En téléprospection, vous préférez :",
+    "choices": [
+      {
+        "text": "Établir un contact chaleureux avant de parler affaire",
+        "type": "Empathique"
+      },
+      {
+        "text": "Susciter l'intérêt par une approche fun et dynamique",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Aller vite à l'essentiel",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Échanger sur les besoins et convictions du prospect",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Donner des informations claires et complètes",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Éviter la pression et respecter le rythme du prospect",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Face à un client exigeant, vous :",
+    "choices": [
+      {
+        "text": "Faites preuve d'empathie et de patience",
+        "type": "Empathique"
+      },
+      {
+        "text": "Dédramatisez avec humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Trouvez rapidement une solution efficace",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Tenez fermement vos positions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Fournissez des arguments détaillés",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Privilégiez la discrétion et l'écoute",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Dans une équipe commerciale, vous êtes celui/celle qui :",
+    "choices": [
+      {
+        "text": "Soutient et encourage les autres",
+        "type": "Empathique"
+      },
+      {
+        "text": "Anime et motive au quotidien",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Guide vers les résultats",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Défend les valeurs communes",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Apporte la rigueur et la méthode",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Observe et réfléchit avant d'agir",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Pour gérer le stress, vous :",
+    "choices": [
+      {
+        "text": "Cherchez du soutien auprès des autres",
+        "type": "Empathique"
+      },
+      {
+        "text": "Trouvez des distractions stimulantes",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prenez les devants pour agir vite",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Vous concentrez sur vos engagements",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Analysez les causes du stress",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Prenez du temps seul pour vous recentrer",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Lorsqu'on vous propose un nouveau challenge, vous :",
+    "choices": [
+      {
+        "text": "Cherchez à comprendre comment cela impactera l'équipe",
+        "type": "Empathique"
+      },
+      {
+        "text": "Voyez cela comme une opportunité d'amusement",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Vous lancez avec détermination",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Analysez si cela correspond à vos valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Étudiez le projet en détail",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez vous préparer seul avant de vous engager",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Quand vous communiquez une mauvaise nouvelle, vous :",
+    "choices": [
+      {
+        "text": "Êtes attentif à l'impact sur les émotions",
+        "type": "Empathique"
+      },
+      {
+        "text": "Trouvez une manière positive de l'annoncer",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Allez droit au but",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Mettez en avant les raisons justes",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Expliquez les faits objectivement",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez communiquer par écrit",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Dans le suivi client, vous êtes plutôt :",
+    "choices": [
+      {
+        "text": "À l'écoute et disponible",
+        "type": "Empathique"
+      },
+      {
+        "text": "Proactif et enthousiasmant",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Orienté résultat rapide",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Soucieux des attentes profondes",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Organisé et rigoureux",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Réservé et méthodique",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Pour vous, un bon commercial est avant tout :",
+    "choices": [
+      {
+        "text": "À l'écoute et empathique",
+        "type": "Empathique"
+      },
+      {
+        "text": "Dynamique et créatif",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Persuasif et déterminé",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Honnête et engagé",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Compétent et méthodique",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Calme et réfléchi",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "question": "Lors d'un désaccord, vous préférez :",
+    "choices": [
+      {
+        "text": "Favoriser le dialogue sincère",
+        "type": "Empathique"
+      },
+      {
+        "text": "Désamorcer par l'humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prendre les choses en main",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Défendre vos convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Comprendre les faits",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Prendre du recul",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Vous motivez votre équipe en :",
+    "choices": [
+      {
+        "text": "Créant un climat de confiance",
+        "type": "Empathique"
+      },
+      {
+        "text": "Organisant des moments ludiques",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Fixant des objectifs clairs",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Valorisation des valeurs du groupe",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Optimisant les processus",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Encourageant les pauses réflexives",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "question": "Votre énergie idéale au travail est :",
+    "choices": [
+      {
+        "text": "Calme et chaleureuse",
+        "type": "Empathique"
+      },
+      {
+        "text": "Vive et enjouée",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Forte et dirigée",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Profonde et engagée",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Raisonnée et mesurée",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Douce et réfléchie",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Lorsque vous êtes stressé, vous :",
+    "choices": [
+      {
+        "text": "Cherchez le soutien des autres",
+        "type": "Empathique"
+      },
+      {
+        "text": "Cherchez à vous distraire",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Agissez pour reprendre le contrôle",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Vous accrochez à vos valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Analysez les causes du stress",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Vous isolez pour réfléchir",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "question": "Face à une situation complexe, vous :",
+    "choices": [
+      {
+        "text": "Cherchez à comprendre ce que ressentent les autres",
+        "type": "Empathique"
+      },
+      {
+        "text": "Apportez une énergie nouvelle",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prenez les décisions rapidement",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Analysez avec conviction les enjeux",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Étudiez toutes les données disponibles",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez travailler seul sur la solution",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Quand vous devez convaincre un client, vous :",
+    "choices": [
+      {
+        "text": "Mettez l'accent sur la relation",
+        "type": "Empathique"
+      },
+      {
+        "text": "Stimulez son enthousiasme",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Utilisez des arguments percutants",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Soulignez les valeurs communes",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Présentez les données chiffrées",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Laissez le client prendre son temps",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "question": "Votre rapport au travail est :",
+    "choices": [
+      {
+        "text": "Centré sur les relations humaines",
+        "type": "Empathique"
+      },
+      {
+        "text": "Dynamique et varié",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Axé sur les résultats",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Basé sur des principes solides",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Méthodique et organisé",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Introspectif et calme",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "question": "En réunion, vous :",
+    "choices": [
+      {
+        "text": "Soyez attentif aux émotions des participants",
+        "type": "Empathique"
+      },
+      {
+        "text": "Cherchez à rendre l'ambiance agréable",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prenez rapidement la parole pour orienter le débat",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Argumentez avec insistance sur votre point de vue",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Présentez des faits précis",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Écoutez plus que vous ne parlez",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "question": "Pour vous, travailler en équipe signifie :",
+    "choices": [
+      {
+        "text": "Soutien mutuel et partage",
+        "type": "Empathique"
+      },
+      {
+        "text": "Énergie collective et créativité",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Objectif commun et efficacité",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Respect des valeurs et engagements",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Méthode et rigueur",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Respect des espaces personnels",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Vous préférez que votre manager :",
+    "choices": [
+      {
+        "text": "Soit à l'écoute et bienveillant",
+        "type": "Empathique"
+      },
+      {
+        "text": "Annonce les choses avec entrain",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Fixe des objectifs clairs",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Soutienne vos convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Apporte des données précises",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Respecte votre rythme de travail",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "question": "Dans une session de formation, vous :",
+    "choices": [
+      {
+        "text": "Appréciez les échanges chaleureux",
+        "type": "Empathique"
+      },
+      {
+        "text": "Aimez les activités interactives",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Privilégiez le contenu concret et rapide",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Recherchez les débats argumentés",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Souhaitez une méthodologie rigoureuse",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préférez une approche individuelle",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Vous vous sentez à l'aise quand :",
+    "choices": [
+      {
+        "text": "Vous êtes entouré de personnes bienveillantes",
+        "type": "Empathique"
+      },
+      {
+        "text": "L'ambiance est joyeuse",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Vous avancez vite vers vos objectifs",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Vous partagez des valeurs communes",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Vous maîtrisez tous les détails",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Vous êtes dans un environnement calme",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "question": "En préparant une offre commerciale, vous :",
+    "choices": [
+      {
+        "text": "Prenez en compte les besoins émotionnels du client",
+        "type": "Empathique"
+      },
+      {
+        "text": "Cherchez à rendre l'offre attractive et originale",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Mettez l'accent sur la rapidité de réponse",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Assurez la cohérence avec les attentes du client",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Soignez la précision des données",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Préparez minutieusement chaque étape",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "question": "Face à un client difficile, vous :",
+    "choices": [
+      {
+        "text": "Montrez votre empathie et patience",
+        "type": "Empathique"
+      },
+      {
+        "text": "Détendez l'atmosphère par l'humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Prenez le leadership de la situation",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Essayez de comprendre ses convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Analysez la situation pour trouver la cause",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Gardez une posture calme et réservée",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "question": "Pour vous, le succès c'est :",
+    "choices": [
+      {
+        "text": "Des relations humaines solides",
+        "type": "Empathique"
+      },
+      {
+        "text": "Le plaisir dans l'action",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Atteindre les objectifs fixés",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Être en accord avec ses valeurs",
+        "type": "Persévérant"
+      },
+      {
+        "text": "La qualité dans le travail",
+        "type": "Analyseur"
+      },
+      {
+        "text": "La sérénité intérieure",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "question": "Vous gérez bien les situations stressantes grâce à :",
+    "choices": [
+      {
+        "text": "Le soutien social",
+        "type": "Empathique"
+      },
+      {
+        "text": "Le divertissement",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "La prise d'initiative",
+        "type": "Promoteur"
+      },
+      {
+        "text": "La conviction personnelle",
+        "type": "Persévérant"
+      },
+      {
+        "text": "L'analyse et la préparation",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Le temps de pause",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "question": "En équipe, vous êtes celui/celle qui :",
+    "choices": [
+      {
+        "text": "Soutient moralement",
+        "type": "Empathique"
+      },
+      {
+        "text": "Anime et motive",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Impulse les actions",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Défend les valeurs et les idées",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Organise le travail",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Observe et conseille",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "question": "Vous préférez apprendre :",
+    "choices": [
+      {
+        "text": "Par le relationnel et l'échange",
+        "type": "Empathique"
+      },
+      {
+        "text": "Par la pratique ludique",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Par des objectifs clairs et concrets",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Par la réflexion et la discussion",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Par la méthode et les détails",
+        "type": "Analyseur"
+      },
+      {
+        "text": "En autonomie et calme",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "question": "Votre communication est plutôt :",
+    "choices": [
+      {
+        "text": "Chaleureuse et empathique",
+        "type": "Empathique"
+      },
+      {
+        "text": "Vive et spontanée",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Directe et assertive",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Argumentée et engagée",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Précise et analytique",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Calme et retenue",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "question": "En cas d'échec, votre réaction est :",
+    "choices": [
+      {
+        "text": "Vous cherchez du soutien",
+        "type": "Empathique"
+      },
+      {
+        "text": "Vous relativisez avec humour",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Vous reprenez rapidement les commandes",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Vous cherchez à comprendre les valeurs en jeu",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Vous analysez les causes",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Vous avez besoin de temps seul",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "question": "Vos collègues vous voient comme :",
+    "choices": [
+      {
+        "text": "Chaleureux et à l'écoute",
+        "type": "Empathique"
+      },
+      {
+        "text": "Dynamique et créatif",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "Décidé et tendu à l'action",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Sincère et convaincu",
+        "type": "Persévérant"
+      },
+      {
+        "text": "Rigoureux et méthodique",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Réservé et réfléchi",
+        "type": "Imagineur"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "question": "Pour vous, la clé d'une relation réussie est :",
+    "choices": [
+      {
+        "text": "L'authenticité et la confiance",
+        "type": "Empathique"
+      },
+      {
+        "text": "La complicité et le fun",
+        "type": "Énergiseur"
+      },
+      {
+        "text": "La clarté et l'efficacité",
+        "type": "Promoteur"
+      },
+      {
+        "text": "Le respect des convictions",
+        "type": "Persévérant"
+      },
+      {
+        "text": "La précision et la logique",
+        "type": "Analyseur"
+      },
+      {
+        "text": "Le respect des espaces",
+        "type": "Imagineur"
+      }
+    ]
+  }
+]

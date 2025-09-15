@@ -4,7 +4,7 @@ import Container from './components/Layout/Container'
 import HomePage from './components/Home/HomePage'
 import GrilleBesoin from './components/GrilleBesoin/GrilleBesoin'
 import GrilleEcoute from './components/GrilleEcoute/GrilleEcoute'
-import TestPosture from './components/TestPosture/TestPosture'
+import TestPCM from "./components/TestPCM/TestPCM";
 import PDFExport from './components/Export/PDFExport'
 import ConfirmationToast from './components/Common/ConfirmationToast'
 import { useFormation } from './hooks/useFormation'
@@ -68,7 +68,7 @@ export default function App(){
                 <span>Grille ÉCOUTE</span>
               </button>
 
-              {/* Carte POSTURE */}
+              {/* Carte PCM */}
               <button className="tile-posture" onClick={()=>go(PAGES.POSTURE)}>
                 <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -77,7 +77,7 @@ export default function App(){
                     <circle cx="12" cy="12" r="2" />
                   </svg>
                 </div>
-                <span>Test POSTURE (QCM)</span>
+                <span>Test PCM (QCM)</span>
               </button>
 
             </div>
@@ -102,12 +102,14 @@ export default function App(){
         )}
 
         {page===PAGES.POSTURE && (
-          <TestPosture
-            data={posture}
-            updateData={(d)=>{updatePosture(d); showToast('Test POSTURE enregistrée ✅')}}
-            onBack={()=>go(PAGES.HUB)}
-          />
-        )}
+          <TestPCM
+        
+user={user}
+data={posture}
+updateData={(d)=>{updatePosture(d); showToast('Test PCM enregistré ✅')}}
+onBack={()=>go(PAGES.HUB)}
+ />
+  )}
       </Container>
       <ConfirmationToast message={toast} />
     </div>
