@@ -5,11 +5,10 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend
 } from "recharts";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import "../../fonts/NotoSans-Regular-normal.js";
 
-// Emojis PCM (exportés depuis Canva, mets PNG ou WebP selon ce que tu as choisi)
+// Icônes profils
 import promoteurImg from "../../assets/emoji/promoteur.png";
 import empathiqueImg from "../../assets/emoji/empathique.png";
 import energiseurImg from "../../assets/emoji/energiseur.png";
@@ -17,11 +16,20 @@ import perseverantImg from "../../assets/emoji/perseverant.png";
 import analyseurImg from "../../assets/emoji/analyseur.png";
 import imagineurImg from "../../assets/emoji/imagineur.png";
 
+// Icônes pictogrammes (PNG 128x128 conseillés)
+import checkIcon from "../../assets/emoji/check.png";
+import warningIcon from "../../assets/emoji/warning.png";
+import ideaIcon from "../../assets/emoji/idea.png";
+
+// Font NotoSans
+import "../../fonts/NotoSans-Regular-normal";
+
 export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState(data.answers || []);
   const [finished, setFinished] = useState(false);
   const [result, setResult] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
 
   const resultRef = useRef(null);
 
@@ -45,7 +53,7 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
     setFinished(true);
   };
 
-  // ---- Export PDF rapide (capture visuelle) ----
+  // ---- Export PDF rapide ----
   const exportPDF = async () => {
     const input = resultRef.current;
     if (!input) return;
@@ -61,17 +69,16 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
     pdf.save("Resultat_PCM.pdf");
   };
 
-  // ---- Export PDF détaillé (rapport structuré avec icônes Canva) ----
- 
-
+  // ---- Export PDF détaillé ----
   const exportDetailedPDF = async (user, result, pcmProfiles, resultRef) => {
     const pdf = new jsPDF("p", "mm", "a4");
+
+    pdf.setFont("NotoSans-Regular", "normal");
+
     const margin = 15;
     let y = margin;
- // Charger et activer Noto Sans
- pdf.setFont("NotoSans-Regular", "normal");
-    // Mapping profil → icône
-    const emojiMap = {
+
+    const iconMap = {
       Promoteur: promoteurImg,
       Empathique: empathiqueImg,
       Énergiseur: energiseurImg,
@@ -82,7 +89,7 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
 
     // --- PAGE 1 : Couverture ---
     pdf.setFillColor(240, 248, 255);
-    pdf.rect(0, 0, 210, 297, "F"); // fond bleu clair
+    pdf.rect(0, 0, 210, 297, "F");
     pdf.setFontSize(26);
     pdf.setTextColor(20, 90, 120);
     pdf.text("Rapport PCM", margin, y + 20);
@@ -98,43 +105,63 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
     const best = Object.entries(result.counts).sort((a, b) => b[1] - a[1])[0];
     const [type, score] = best;
     const profile = pcmProfiles[type];
-    const icon = emojiMap[profile.title];
+
+    const icon = iconMap[profile.title];
+    if (icon) {
+      pdf.addImage(icon, "PNG", margin, y, 12, 12);
+    }
 
     pdf.setFontSize(20);
     pdf.setTextColor(0, 100, 200);
-
-    if (icon) {
-      pdf.addImage(icon, "PNG", margin, y, 12, 12); // image couleur
-      pdf.text(profile.title, margin + 18, y + 9);
-    } else {
-      pdf.text(profile.title, margin, y + 9);
-    }
+    pdf.text(`${profile.title}`, margin + 18, y + 10);
 
     pdf.setFontSize(12);
     pdf.setTextColor(0, 0, 0);
-    pdf.text(`Score : ${score} réponses`, margin, y + 20);
+    pdf.text(`Score : ${score} réponses`, margin, y + 25);
 
     pdf.setFontSize(14);
     pdf.setTextColor(40, 40, 40);
-    pdf.text(profile.simplified, margin, y + 35, { maxWidth: 180 });
+    pdf.text(profile.simplified || "", margin, y + 40, { maxWidth: 180 });
 
-    // Encart Conseils
-    pdf.setFillColor(255, 245, 230);
-    pdf.rect(margin, y + 60, 180, 35, "F");
-    pdf.setTextColor(200, 80, 20);
-    pdf.setFontSize(12);
-    pdf.text("💡 Conseils :", margin + 5, y + 68);
-    pdf.setTextColor(60, 60, 60);
-    pdf.text(profile.detailed.advice, margin + 5, y + 78, { maxWidth: 170 });
+    let offset = y + 70;
+
+    // ✅ Encadrés avec icônes PNG
+    // Points forts
+    pdf.setFillColor(230, 255, 230);
+    pdf.rect(margin, offset, 180, 25, "F");
+    pdf.addImage(checkIcon, "PNG", margin + 2, offset + 2, 8, 8);
+    pdf.setTextColor(0, 120, 0);
+    pdf.text("Points forts :", margin + 12, offset + 9);
+    pdf.setTextColor(40, 40, 40);
+    pdf.text(profile.detailed.strengths || "", margin + 5, offset + 18, { maxWidth: 170 });
+
+    offset += 35;
+
+    // Points de vigilance
+    pdf.setFillColor(255, 245, 200);
+    pdf.rect(margin, offset, 180, 25, "F");
+    pdf.addImage(warningIcon, "PNG", margin + 2, offset + 2, 8, 8);
+    pdf.setTextColor(180, 100, 0);
+    pdf.text("Points de vigilance :", margin + 12, offset + 9);
+    pdf.setTextColor(40, 40, 40);
+    pdf.text(profile.detailed.weaknesses || "", margin + 5, offset + 18, { maxWidth: 170 });
+
+    offset += 35;
+
+    // Conseils
+    pdf.setFillColor(230, 240, 255);
+    pdf.rect(margin, offset, 180, 25, "F");
+    pdf.addImage(ideaIcon, "PNG", margin + 2, offset + 2, 8, 8);
+    pdf.setTextColor(0, 80, 180);
+    pdf.text("Conseils :", margin + 12, offset + 9);
+    pdf.setTextColor(40, 40, 40);
+    pdf.text(profile.detailed.advice || "", margin + 5, offset + 18, { maxWidth: 170 });
 
     pdf.addPage();
 
     // --- PAGE 3 : Graphiques ---
     if (resultRef && resultRef.current) {
-      const canvas = await html2canvas(resultRef.current, {
-        backgroundColor: "#ffffff",
-        scale: 2
-      });
+      const canvas = await html2canvas(resultRef.current, { backgroundColor: "#ffffff", scale: 2 });
       const imgData = canvas.toDataURL("image/png");
 
       const imgProps = pdf.getImageProperties(imgData);
@@ -150,20 +177,20 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
 
     pdf.addPage();
 
-    // --- PAGE 4 : Synthèse complète ---
+    // --- PAGE 4 : Synthèse ---
     pdf.setFontSize(18);
     pdf.setTextColor(20, 90, 120);
     pdf.text("Synthèse des profils", margin, y);
 
-    let offset = y + 15;
+    let offset2 = y + 15;
     Object.entries(result.counts).forEach(([t, s]) => {
       pdf.setFontSize(12);
       pdf.setTextColor(0, 0, 0);
-      pdf.text(`${pcmProfiles[t].title} : ${s}`, margin, offset);
-      offset += 8;
+      pdf.text(`${pcmProfiles[t].title} : ${s}`, margin, offset2);
+      offset2 += 8;
     });
 
-    offset += 20;
+    offset2 += 20;
     pdf.setFontSize(12);
     pdf.setTextColor(180, 80, 20);
     pdf.text(
@@ -172,7 +199,7 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
       "Ils peuvent évoluer selon votre environnement, votre état de stress ou vos expériences.\n" +
       "Ce n’est pas un diagnostic définitif.",
       margin,
-      offset,
+      offset2,
       { maxWidth: 180 }
     );
 
@@ -189,6 +216,9 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
       fullMark: pcmQuestions.length
     }));
 
+    const [dominantType] = best[0];
+    const profile = pcmProfiles[dominantType];
+
     return (
       <section>
         <div className="flex items-center gap-2 mb-4">
@@ -197,9 +227,9 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
         </div>
 
         <div ref={resultRef}>
-          {/* Graphique barres */}
+          {/* Graphiques */}
           <div className="card mb-6">
-            <h3 className="font-bold text-gray-800 mb-3">Répartition par profil</h3>
+            <h3 className="font-bold text-gray-900 mb-3">Répartition par profil</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -211,9 +241,8 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
             </ResponsiveContainer>
           </div>
 
-          {/* Graphique radar */}
           <div className="card mb-6">
-            <h3 className="font-bold text-gray-800 mb-3">Équilibre des profils</h3>
+            <h3 className="font-bold text-gray-900 mb-3">Équilibre des profils</h3>
             <ResponsiveContainer width="100%" height={350}>
               <RadarChart data={radarData}>
                 <PolarGrid />
@@ -224,6 +253,27 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
               </RadarChart>
             </ResponsiveContainer>
           </div>
+
+          {/* Résumé + bouton */}
+          <div className="card mb-6">
+            <h3 className="font-bold text-gray-900 mb-2">Résumé rapide</h3>
+            <p className="text-gray-900">{profile.simplified}</p>
+            <button
+              className="btn btn-outline mt-2"
+              onClick={() => setShowDetails((prev) => !prev)}
+            >
+              {showDetails ? "Masquer l'analyse détaillée" : "Afficher l'analyse détaillée"}
+            </button>
+          </div>
+
+          {showDetails && (
+            <div className="card mb-6">
+              <h3 className="font-bold text-gray-900 mb-2">Analyse complète</h3>
+              <p className="text-gray-900"><b>✅ Points forts :</b> {profile.detailed.strengths}</p>
+              <p className="text-gray-900"><b>⚠️ Points de vigilance :</b> {profile.detailed.weaknesses}</p>
+              <p className="text-gray-900"><b>💡 Conseils :</b> {profile.detailed.advice}</p>
+            </div>
+          )}
         </div>
 
         {/* Boutons export */}
@@ -249,7 +299,7 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
       </div>
 
       <div className="card">
-        <p className="font-medium mb-3 text-gray-800">{pcmQuestions[step].question}</p>
+        <p className="font-medium mb-3 text-gray-900">{pcmQuestions[step].question}</p>
         <div className="flex flex-col gap-2">
           {pcmQuestions[step].choices.map((c, i) => (
             <button
@@ -257,7 +307,7 @@ export default function TestPCM({ user = {}, data = {}, updateData, onBack }) {
               className={`btn w-full text-left ${
                 answers[step] === c.type
                   ? "bg-blue-100 border-blue-500 text-blue-700"
-                  : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                  : "bg-white border-gray-300 text-gray-900 hover:bg-gray-50"
               }`}
               onClick={() => handleAnswer(c.type)}
             >
