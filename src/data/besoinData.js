@@ -1,4 +1,6 @@
-export const qualificationSections = [
+// src/data/besoinData.js
+
+export const besoinSections = [
   { 
     id: 'objectifs', 
     title: 'Objectifs', 
